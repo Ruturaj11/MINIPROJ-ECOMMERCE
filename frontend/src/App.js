@@ -9,8 +9,10 @@ import LoginScreen from './Screens/LoginScreen'
 import RegisterScreen from './Screens/RegisterScreen'
 import ProfileScreen from './Screens/ProfileScreen'
 import SubscriberScreen from './Screens/SubscriberScreen'
-
-
+import ShippingScreen from './Screens/ShippingScreen'
+import PaymentScreen from './Screens/PaymentScreen'
+import PlaceOrderScreen from './Screens/PlaceOrderScreen'
+import OrderScreen from './Screens/OrderScreen'
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
           <Route path='/Subscribe' component={SubscriberScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/profile' component={ProfileScreen} />
+          <Route path='/shipping' component={ShippingScreen} />
+          <Route path='/placeorder' component={PlaceOrderScreen} />
+          <Route path='/order/:id' component={OrderScreen} />
+          <Route path='/payment' component={PaymentScreen} />          
           <Route path='/product/:id' component={ProductScreen}  />
           <Route path='/cart/:id?' component={CartScreen}  />
         </Container>
