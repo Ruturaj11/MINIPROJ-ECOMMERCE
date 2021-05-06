@@ -4,22 +4,28 @@ import {  Row, Col} from   'react-bootstrap'
 import Product from '../Components/Product.js'
 import Loader from '../Components/Loader.js'
 import Message from '../Components/Message'
+import ProductCarousel from '../Components/ProductCarousel'
 import { listProducts } from '../actions/productActions'
 
 
 
-function HomeScreen() {
+function HomeScreen({history}) {
     const dispatch = useDispatch()
     const productList  = useSelector(state => state.productList)
     const {error , loading , products} = productList
+
+    let keyword = history.location.search
     
     useEffect(() => {
-          dispatch(listProducts())
-    }, [dispatch])
+          dispatch(listProducts(keyword))
+
+    }, [dispatch, keyword])
 
     
     return (
         <div>
+            {!keyword  && <ProductCarousel /> }
+            
             <h2>Featured Books</h2>
             {loading ? <Loader />
             : error ? <Message variant='danger'>{error}</Message>

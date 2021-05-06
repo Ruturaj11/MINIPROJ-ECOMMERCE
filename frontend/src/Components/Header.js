@@ -2,6 +2,7 @@ import React from "react"
 import { useDispatch, useSelector} from 'react-redux'
 import { Navbar, Nav, Row, Container, NavDropdown } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
+import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
 import { slogout } from '../actions/subscriberActions'
 
@@ -33,9 +34,12 @@ function Header() {
           <LinkContainer to="/">
             <Navbar.Brand >The Book Store</Navbar.Brand>
           </LinkContainer>
+          
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+            <SearchBox />
             <Nav className="mr-auto">
+
               <LinkContainer to="/Cart">
                 <Nav.Link >
                   <i className="fas fa-shopping-cart"></i>Cart
